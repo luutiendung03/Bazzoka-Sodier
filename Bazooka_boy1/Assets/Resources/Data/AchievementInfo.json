@@ -1,0 +1,62 @@
+﻿{
+  "achievementItems": [
+    {
+      "id": 0,
+      "name": "Defeat Enemies 1 Shot",
+      "gold": 100,
+      "process": 10
+    },
+    {
+      "id": 1,
+      "name": "Defeat Enemies 1 Shot",
+      "gold": 100,
+      "process": 10
+    },
+    {
+      "id": 2,
+      "name": "Defeat Enemies 1 Shot",
+      "gold": 100,
+      "process": 10
+    },
+    {
+      "id": 3,
+      "name": "Defeat Enemies 1 Shot",
+      "gold": 100,
+      "process": 10
+    },
+    {
+      "id": 4,
+      "name": "Defeat Enemies 1 Shot",
+      "gold": 100,
+      "process": 10
+    },
+    {
+      "id": 5,
+      "name": "Defeat Enemies 1 Shot",
+      "gold": 100,
+      "process": 10
+    },
+    {
+      "id": 6,
+      "name": "Defeat Enemies 1 Shot",
+      "gold": 100,
+      "process": 10
+    },
+    {
+      "id": 7,
+      "name": "Defeat Enemies 1 Shot",
+      "gold": 100,
+      "process": 10
+    },
+    {
+      "name": "Defeat Enemies 1 Shot",
+      "gold": 100,
+      "process": 10
+    },
+    {
+      "name": "Defeat Enemies 1 Shot",
+      "gold": 100,
+      "process": 10
+    }
+  ]
+}

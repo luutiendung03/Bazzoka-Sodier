@@ -1,0 +1,203 @@
+﻿{
+  "skinItems": [
+    {
+      "id": 0,
+      "type": 0,
+      "topic": 0,
+      "gold": 100
+    },
+    {
+      "id": 1,
+      "type": 1,
+      "topic": 0,
+      "gold": 100
+    },
+    {
+      "id": 2,
+      "type": 2,
+      "topic": 0,
+      "gold": 100
+    },
+    {
+      "id": 3,
+      "type": 0,
+      "topic": 1,
+      "gold": 100
+    },
+    {
+      "id": 4,
+      "type": 1,
+      "topic": 1,
+      "gold": 100
+    },
+    {
+      "id": 5,
+      "type": 2,
+      "topic": 1,
+      "gold": 100
+    },
+    {
+      "id": 6,
+      "type": 0,
+      "topic": 2,
+      "gold": 100
+    },
+    {
+      "id": 7,
+      "type": 1,
+      "topic": 2,
+      "gold": 100
+    },
+    {
+      "id": 8,
+      "type": 2,
+      "topic": 2,
+      "gold": 100
+    },
+    {
+      "id": 9,
+      "type": 0,
+      "topic": 3,
+      "gold": 100
+    },
+    {
+      "id": 10,
+      "type": 1,
+      "topic": 3,
+      "gold": 100
+    },
+    {
+      "id": 11,
+      "type": 2,
+      "topic": 3,
+      "gold": 100
+    },
+    {
+      "id": 12,
+      "type": 0,
+      "topic": 4,
+      "gold": 100
+    },
+    {
+      "id": 13,
+      "type": 1,
+      "topic": 4,
+      "gold": 100
+    },
+
+    {
+      "id": 14,
+      "type": 2,
+      "topic": 4,
+      "gold": 100
+    },
+    {
+      "id": 15,
+      "type": 0,
+      "topic": 5,
+      "gold": 100
+    },
+    {
+      "id": 16,
+      "type": 1,
+      "topic": 5,
+      "gold": 100
+    },
+    {
+      "id": 17,
+      "type": 2,
+      "topic": 5,
+      "gold": 100
+    },
+    {
+      "id": 18,
+      "type": 0,
+      "topic": 6,
+      "gold": 100
+    },
+    {
+      "id": 19,
+      "type": 1,
+      "topic": 6,
+      "gold": 100
+    },
+    {
+      "id": 20,
+      "type": 2,
+      "topic": 6,
+      "gold": 100
+    },
+    {
+      "id": 21,
+      "type": 0,
+      "topic": 7,
+      "gold": 100
+    },
+    {
+      "id": 22,
+      "type": 1,
+      "topic": 7,
+      "gold": 100
+    },
+    {
+      "id": 23,
+      "type": 2,
+      "topic": 7,
+      "gold": 100
+    },
+    {
+      "id": 24,
+      "type": 0,
+      "topic": 8,
+      "gold": 100
+    },
+    {
+      "id": 25,
+      "type": 1,
+      "topic": 8,
+      "gold": 100
+    },
+    {
+      "id": 26,
+      "type": 2,
+      "topic": 8,
+      "gold": 100
+    },
+    {
+      "id": 27,
+      "type": 0,
+      "topic": 9,
+      "gold": 100
+    },
+    {
+      "id": 28,
+      "type": 1,
+      "topic": 9,
+      "gold": 100
+    },
+    {
+      "id": 29,
+      "type": 2,
+      "topic": 9,
+      "gold": 100
+    },
+    {
+      "id": 30,
+      "type": 0,
+      "topic": 10,
+      "gold": 100
+    },
+    {
+      "id": 31,
+      "type": 1,
+      "topic": 10,
+      "gold": 100
+    },
+    {
+      "id": 32,
+      "type": 2,
+      "topic": 10,
+      "gold": 100
+    }
+  ]
+}
