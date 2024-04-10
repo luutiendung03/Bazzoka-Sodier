@@ -66,24 +66,25 @@ public class GunShop_GridEvent : GridItemEvent
         switch (clicked.tag)
         {
             case "FirstItem":
-                if(_item != currentUsed)
+                AudioController.Instance.PlayAudio(6);
+                if ((_item != currentUsed) && (PlayerPersistentData.Instance.GetUsedItem(LoadingItem.Gun,_item.id) == 1))
                 {
                     currentUsed.OnUnused();
                     currentUsed = _item;
                     currentUsed.OnUsed();
                     _item.Swap();
                 }
-               
+                
 
                 break;
             case "SecondItem":
                 _item.Buy();
+                AudioController.Instance.PlayAudio(6);
 
-                foreach (GunItem item in transform.GetComponentsInChildren<GunItem>())
-                    item.tickV.SetActive(false);
                 break;
             case "ThirdItem":
-
+                _item.WatchAds();
+                AudioController.Instance.PlayAudio(6);
                 break;
         }
 

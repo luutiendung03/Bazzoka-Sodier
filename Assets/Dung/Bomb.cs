@@ -25,6 +25,7 @@ public class Bomb : MonoBehaviour
 
 	private void Explode()
     {
+		AudioController.Instance.PlayAudio(0);
 		Instantiate(explosion, transform.position, Quaternion.identity);
 
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
@@ -42,11 +43,11 @@ public class Bomb : MonoBehaviour
 				//Debug.Log(rb.name);
 				if(rb.tag == "Player")
 				{
-					Player.Instance.CheckDead();
+					rb.GetComponent<Player>().CheckDead();
 				}
 				else if(rb.tag == "Enemy")
 				{
-					StartCoroutine(Enemy.Instance.Die());
+					rb.GetComponent<Enemy>().CheckDead();
 				}
                 else if(rb.tag == "Barrel")
                 {
@@ -56,6 +57,11 @@ public class Bomb : MonoBehaviour
             }
 
 		}
+	}
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+		Explosion();
 	}
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -75,7 +81,7 @@ public class Bomb : MonoBehaviour
 		
 
 		float magOfVelo = gameObject.GetComponent<Rigidbody2D>().velocity.magnitude;
-		if(collision.relativeVelocity.magnitude > 2)
+		if(collision.relativeVelocity.magnitude > 5)
         {
 			Explosion();
         }

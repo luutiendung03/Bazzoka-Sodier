@@ -21,11 +21,12 @@ public abstract class EventHolder : InfoLoad, IPointerClickHandler, IPointerDown
     protected abstract bool ClickAction(PointerEventData eventData, GameObject clicked);
     protected virtual void Up(Transform holding)
     {
-        holding.transform.localScale = Vector3.one;
+        //holding.transform.localScale = Vector3.one;
     }
     protected virtual void Down(Transform holding)
     {
-        holding.transform.localScale = Vector3.one * popDownScale;
+        AudioController.Instance.PlayAudio(6);
+        //holding.transform.localScale = Vector3.one * popDownScale;
     }
 
 

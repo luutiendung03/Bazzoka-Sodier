@@ -115,27 +115,25 @@ public class Player : Character
 
     public override IEnumerator Die()
     {
-        
-            
 
-            animator.enabled = true;
-            animator.SetBool("Lose", true);
-            Debug.Log(animator.enabled);
-            
-            //animator.enabled = false;
+        animator.enabled = true;
+        animator.SetBool("Lose", true);
+        Debug.Log(animator.enabled);
 
-            foreach (Rigidbody2D rigid in rb)
-            {
-                rigid.velocity = Vector2.zero;
-                rigid.isKinematic = false;
-            }
-            rb[0].isKinematic = true;
+        //animator.enabled = false;
 
-            foreach (Collider2D collider in col)
-            {
-                collider.enabled = true;
-            }
-            col[0].enabled = false;
+        foreach (Rigidbody2D rigid in rb)
+        {
+            rigid.velocity = Vector2.zero;
+            rigid.isKinematic = false;
+        }
+        rb[0].isKinematic = true;
+
+        foreach (Collider2D collider in col)
+        {
+            collider.enabled = true;
+        }
+        col[0].enabled = false;
 
         foreach (HingeJoint2D joint in joints)
         {
@@ -144,11 +142,9 @@ public class Player : Character
 
         yield return new WaitForSeconds(0.1f);
 
-            animator.enabled = false;
-            Debug.Log(animator.enabled);
-        
+        animator.enabled = false;
+        Debug.Log(animator.enabled);
 
-        
 
     }
 

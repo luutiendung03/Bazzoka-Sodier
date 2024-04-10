@@ -33,6 +33,7 @@ public class GunItemInfo
     public int id;
     public string name;
     public int gold;
+    public int ads;
 }
 
 [Serializable]
@@ -42,6 +43,7 @@ public class SkinItemInfo
     public TypeofSkin type;
     public int topic;
     public int gold;
+    public int ads;
 }
 
 [Serializable]

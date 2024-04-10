@@ -13,7 +13,9 @@ public class Napalm_Bullet : Bullet
 
     public override void Explosion()
     {
-       
+
+        PlayerPersistentData.Instance.ScoreProgress(AchievementType.UseNapalm, 1);
+
         if (cnt == 3)
         {
             Lean.Pool.LeanPool.Spawn(explosion, point.position, Quaternion.identity);

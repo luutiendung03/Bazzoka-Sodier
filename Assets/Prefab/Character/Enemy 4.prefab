@@ -148,7 +148,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 9ffa697139520034e909fe01f45cc5b1, type: 3}
+  - {fileID: 2100000, guid: a1508e6469cf4b64c9d199ec633fa642, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -428,7 +428,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 9ffa697139520034e909fe01f45cc5b1, type: 3}
+  - {fileID: 2100000, guid: a1508e6469cf4b64c9d199ec633fa642, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1089,7 +1089,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 9ffa697139520034e909fe01f45cc5b1, type: 3}
+  - {fileID: 2100000, guid: a1508e6469cf4b64c9d199ec633fa642, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1804,7 +1804,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 3b9bb9215ff8e724199b3e2a5c992547, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -1846,7 +1846,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.013118386, y: 0.82230675}
+  m_Offset: {x: -0.006259322, y: 0.82230675}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1857,7 +1857,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7638695, y: 1.6904542}
+  m_Size: {x: 0.4738958, y: 1.6904542}
   m_EdgeRadius: 0
 --- !u!114 &7499417476091848143
 MonoBehaviour:

@@ -44,6 +44,9 @@ public class Bunker_Bullet : Bullet
             yield return null;
             Vector3 velo = new Vector3(veloX, veloY);
 
+            float angle = Mathf.Atan2(veloY, veloX) * Mathf.Rad2Deg;
+            newBullet.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
             if (newBullet.isCollision)
                 speed = 0.2f;
             else
@@ -54,21 +57,22 @@ public class Bunker_Bullet : Bullet
             veloY += (g * Time.deltaTime * speed);
         }
 
+        PlayerPersistentData.Instance.ScoreProgress(AchievementType.UseBunker, 1);
         //Debug.Log("kewk");
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    isCollision = true;
-    //    StartCoroutine(Explosion1());
-    //    Debug.Log("1");
-    //}
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         isCollision = true;
         StartCoroutine(Explosion1());
         Debug.Log("1");
     }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    isCollision = true;
+    //    StartCoroutine(Explosion1());
+    //    Debug.Log("1");
+    //}
 }
 

@@ -31,5 +31,6 @@ public class UIManager : MonoBehaviour
         {
             screen.gameObject.SetActive(false);
         }
+        
     }
 }

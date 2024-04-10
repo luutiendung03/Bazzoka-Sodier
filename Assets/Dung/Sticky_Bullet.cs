@@ -30,6 +30,7 @@ public class Sticky_Bullet : Bullet
 
     public override IEnumerator Shoot(Bullet bullet, Vector2 point, Vector2 direction, float force)
     {
+        PlayerPersistentData.Instance.ScoreProgress(AchievementType.UseSticky, 1);
         yield return null;
         Bullet newBullet = Instantiate(bullet, point, Quaternion.identity);
         newBullet.Push(force * direction);

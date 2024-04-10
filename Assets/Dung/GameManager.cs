@@ -26,13 +26,14 @@ public class GameManager : Singleton<GameManager>
 
 	public Level curLevel;
 
-
 	
+
 
 	//---------------------------------------
 	void Start()
 	{
-		levelPlay = PlayerPersistentData.Instance.CurrentLevel;
+		levelPlay = (PlayerPersistentData.Instance.CurrentLevel % 30);
+
 		//cam = Camera.main;
 		//bullet.DesactivateRb();
 		Physics2D.gravity = new Vector2(0, -10);
@@ -65,6 +66,7 @@ public class GameManager : Singleton<GameManager>
 
 		BulletCount();
 		curLevel.CheckWinorLose();
+		StartCheckKill();
 	}
 
 	//-Drag--------------------------------------
@@ -72,7 +74,7 @@ public class GameManager : Singleton<GameManager>
 	//{
 	//	//bullet.DesactivateRb();
 	//	startPoint = cam.ScreenToWorldPoint(Input.mousePosition);
-		
+
 
 	//	trajectory.Show();
 	//}
@@ -93,13 +95,13 @@ public class GameManager : Singleton<GameManager>
 
 	//	if (direction.y >= 0)
 	//	{
-			
+
 	//		if (direction.x >= 0)
- //           {
+	//           {
 	//			Player.Instance.hip.eulerAngles = new Vector3(0, 0, a) + new Vector3(0, 0, 90);
 	//			Player.Instance.gun.localScale = new Vector3(1, 1, 1);
 	//		}
- //           else 
+	//           else 
 	//		{
 	//			Player.Instance.hip.eulerAngles = new Vector3(0, 0, -90 + a);
 	//			Player.Instance.gun.localScale = new Vector3(-1, 1, 1);
@@ -108,7 +110,7 @@ public class GameManager : Singleton<GameManager>
 	//	}
 	//	else
 	//	{
-			
+
 	//		if (direction.x >= 0)
 	//		{
 	//			Player.Instance.hip.eulerAngles = new Vector3(0, 0, a) - new Vector3(0, 0, 90);
@@ -132,12 +134,60 @@ public class GameManager : Singleton<GameManager>
 	//	//newBullet.Push(direction * pushForce);
 
 	//	StartCoroutine(bullet.Shoot(bullet, Player.Instance.scope.position, direction, pushForce));
-		
+
 
 	//	//bullet.Shoot(bullet, Player.Instance.scope.position, direction * pushForce); 
 
 	//	trajectory.Hide();
 	//}
+
+
+	private int cntShoot;
+	private int enemyDead;
+	public bool shoot = true;
+	private bool flag = true;
+	private bool flag1 = true;
+
+	private void StartCheckKill()
+    {
+		StartCoroutine(CheckKill());
+    }		
+	private IEnumerator  CheckKill()
+    {
+		
+		if(shoot)
+        {
+			shoot = false;
+			cntShoot = count;
+			enemyDead = Level.Instance.cnt;
+			
+		}
+		
+		if(count == cntShoot)
+        {
+			if((Level.Instance.cnt - enemyDead == Level.Instance.enemies.Length) && flag)
+            {
+				flag = false;
+				GamePlay.instance.aceTxt.SetActive(true);
+				yield return new WaitForSeconds(1f);
+				GamePlay.instance.aceTxt.SetActive(false);
+			}
+			if((Level.Instance.cnt - enemyDead == 2) && flag1)
+            {
+				flag1 = false;
+				GamePlay.instance.dbKillText.SetActive(true);
+				yield return new WaitForSeconds(1f);
+				GamePlay.instance.dbKillText.SetActive(false); ;
+			}
+		}
+    }
+
+	public void GetMoreBullet()
+    {
+		GamePlay.instance.maxBullet.SetActive(true);
+		count = 1000;
+    }
+
 
 	private void BulletCount()
 	{
@@ -168,6 +218,11 @@ public class GameManager : Singleton<GameManager>
 
 	}
 
+	public  void PlayNormalMode()
+    {
+
+		UIScreenEvent.Instance.MenuOff();
+	}
 
 
 	float startTimePlay;

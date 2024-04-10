@@ -18,6 +18,8 @@ public class Burst_Bullet : Bullet
 
     public override IEnumerator Shoot(Bullet bullet, Vector2 point, Vector2 direction, float force)
     {
+        PlayerPersistentData.Instance.ScoreProgress(AchievementType.UseBurst, 1);
+
         Bullet newBullet = Instantiate(bullet, point, Quaternion.identity);
         newBullet.Push(force * direction);
         yield return new WaitForSeconds(0.2f);

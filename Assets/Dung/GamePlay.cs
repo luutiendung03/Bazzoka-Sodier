@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class GamePlay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
@@ -10,6 +11,13 @@ public class GamePlay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 	public GameObject firstBullet;
 	public GameObject secondBullet;
 	public GameObject thirdBullet;
+
+	[SerializeField] public GameObject dbKillText;
+	[SerializeField] public GameObject aceTxt;
+
+	[SerializeField] private Text curLevelTxt;
+
+	public GameObject maxBullet;
 
     private void Awake()
     {
@@ -44,6 +52,7 @@ public class GamePlay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     {
 		Swap();
 		cam = Camera.main;
+		curLevelTxt.text = PlayerPersistentData.Instance.CurrentLevel.ToString();
     }
 
 	public void Swap()
@@ -74,6 +83,7 @@ public class GamePlay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 			isDragging = false;
 			OnDragEnd();
 			GameManager.Instance.count--;
+			GameManager.Instance.shoot = true ;
 		}
 
 	}
@@ -140,7 +150,8 @@ public class GamePlay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 		//push the ball
 		//Bullet newBullet = Instantiate(bullet, Player.Instance.scope.position, Quaternion.identity);
 		//newBullet.Push(direction * pushForce);
-		
+		PlayerPersistentData.Instance.ScoreProgress(AchievementType.Shoot, 1);
+
 		StartCoroutine(bullet.Shoot(bullet, Player.Instance.scope.position, direction, pushForce));
 
 
@@ -148,6 +159,8 @@ public class GamePlay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
 		trajectory.Hide();
 	}
+
+	
 
 	//private void BulletCount()
 	//{

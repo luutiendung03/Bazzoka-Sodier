@@ -155,7 +155,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   threshold: 1
   delay: 0.1
-  prefab: {fileID: 100000, guid: 092aeef3857c50f41ada30e877c781cd, type: 3}
+  prefab: {fileID: 4241716291625933971, guid: 1219b3c4d52a7674688e758b0f41071d, type: 3}
   offset: 0.1
   rotateTo: 0
   onImpact:
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   col: {fileID: 0}
-  explosion: {fileID: 0}
+  explosion: {fileID: 4241716291625933971, guid: 1219b3c4d52a7674688e758b0f41071d, type: 3}
   point: {fileID: 7815805670888682967}
   radius: 1.8
   explodeForce: 100
@@ -219,4 +219,4 @@ MonoBehaviour:
   veloY: 0
   isCollision: 0
   force: 100
-  banana: {fileID: 6943723919936982201, guid: 9fd0251da246dc545bee7a2d7b6ffa2b, type: 3}
+  banana: {fileID: 1805036248739768893, guid: 7f35f49d447afef49944b41e220b2774, type: 3}

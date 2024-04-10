@@ -32,17 +32,42 @@ public class WinBonus : MonoBehaviour
         Debug.Log(arrow.eulerAngles);
         if(arrow.eulerAngles.z >= 7.60f)
         {
-            
+            PlayerPersistentData.Instance.Gold += 250;
         }
         else if(arrow.eulerAngles.z >= 2.30f)
         {
-
+            PlayerPersistentData.Instance.Gold += 250;
+            PlayerPersistentData.Instance.Gold += 250;
+        }
+        else if (arrow.eulerAngles.z >= -2.30f)
+        {
+            PlayerPersistentData.Instance.Gold += 250;
+            PlayerPersistentData.Instance.Gold += 250;
+            PlayerPersistentData.Instance.Gold += 250;
+        }
+        else if (arrow.eulerAngles.z >= -7.30f)
+        {
+            PlayerPersistentData.Instance.Gold += 250;
+            PlayerPersistentData.Instance.Gold += 250;
+        }    
+        else
+        {
+            PlayerPersistentData.Instance.Gold += 250;
         }
 
+        AudioController.Instance.PlayAudio(3);
+
+    }
+
+    public void GetCoin()
+    {
+        AudioController.Instance.PlayAudio(3);
+        PlayerPersistentData.Instance.Gold += 100;
     }
 
     public void NextLevel()
     {
+        AudioController.Instance.PlayAudio(3);
         SceneManager.LoadScene(0);
     }
 

@@ -57,9 +57,9 @@ public class Laser_Bullet : Bullet
 
         }
         Vector3 eula = new Vector3(0, 0, stampAngle );
-        Bullet newBullet = Instantiate(bullet, point, Quaternion.Euler(eula));
-
-        
+        Bullet newBullet = Instantiate(bullet, point, Quaternion.identity);
+        newBullet.transform.eulerAngles = eula;
+        Debug.Log(newBullet.transform.eulerAngles);
 
         yield return new WaitForSeconds(1f);
 
@@ -70,6 +70,8 @@ public class Laser_Bullet : Bullet
             All(StampPaint, point, StampSize, stampAngle, StampShape, StampColor, Mask);
 
         }
+
+        PlayerPersistentData.Instance.ScoreProgress(AchievementType.UseLaser, 1);
     }
 
     Matrix4x4 CalculateMatrix(Vector2 position, Vector2 size, float angle)

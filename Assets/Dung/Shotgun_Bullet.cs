@@ -18,6 +18,8 @@ public class Shotgun_Bullet : Bullet
 
     public override IEnumerator Shoot(Bullet bullet, Vector2 point, Vector2 direction, float force)
     {
+        PlayerPersistentData.Instance.ScoreProgress(AchievementType.UseShotgun, 1);
+
         yield return null;
         float a = 0;
         if (direction.y != 0)

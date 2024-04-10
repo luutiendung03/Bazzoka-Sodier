@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2898195542039495030}
   - component: {fileID: 4609962932011277815}
   - component: {fileID: 4609962932011277812}
+  - component: {fileID: 3217835485214309827}
   m_Layer: 0
   m_Name: bullet of BUNKER BOMB
   m_TagString: Untagged
@@ -93,7 +94,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3690850584804270243}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -116,9 +117,33 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.30771482, y: 0.0013502836}
-  m_Size: {x: 1.3294225, y: 0.37665725}
+  m_Offset: {x: -0.05165828, y: 0.0013502601}
+  m_Size: {x: 0.81731355, y: 0.37665933}
   m_Direction: 1
+--- !u!114 &3217835485214309827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3690850584804270243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea649f4ad4b7c745a51b31f8107eb5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  col: {fileID: 0}
+  explosion: {fileID: 100000, guid: f55afcbc5554ebb49b273492978028b1, type: 3}
+  point: {fileID: 4067693439976569369}
+  radius: 1.5
+  explodeForce: 100
+  veloX: 0
+  veloY: 0
+  isCollision: 0
+  bunkerExplosion: {fileID: 100000, guid: 169ec493eaac937428dbc01b8af2b014, type: 3}
+  forceScale: 1
+  speed: 1

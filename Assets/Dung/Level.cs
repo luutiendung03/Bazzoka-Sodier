@@ -60,6 +60,10 @@ public class Level : Singleton<Level>
 		player.VictoryAnimation();
 		yield return new WaitForSeconds(2);
 		WinGame();
+		if(GameManager.Instance.count == 2)
+        {
+			PlayerPersistentData.Instance.ScoreProgress(AchievementType.Oneshot, 1);
+		}
 	}
 
 	public void WinGame()
@@ -69,7 +73,7 @@ public class Level : Singleton<Level>
 
 	private IEnumerator CheckWinLose()
     {
-		isEndGame = true;
+		isEndGame = true; 
 		yield return new WaitForSeconds(3);
 		if(!player.isDead)
         {
@@ -106,7 +110,7 @@ public class Level : Singleton<Level>
 		if(!isEndGame)	
         {
 			
-			if (cnt == enemies.Length)
+			if (cnt >= enemies.Length)
             {
 				StartCoroutine(CheckWinLose());
 			}				

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2025146949365326602}
   - component: {fileID: 2025146949365326603}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2025146949365326601}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.61, y: -0.03, z: 0}
+  m_LocalPosition: {x: 0.443, y: -0.016, z: 0}
   m_LocalScale: {x: -0.17, y: 0.15610999, z: 0.28724}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 7842675441144502614}
   - component: {fileID: 7842675441144502613}
   - component: {fileID: 1970728959245027991}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: bullet of digger bomb
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -186,8 +186,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.013984561, y: 0.000000029802322}
-  m_Size: {x: 1.2664871, y: 0.5991687}
+  m_Offset: {x: 0.14222015, y: -0.013937194}
+  m_Size: {x: 0.63371605, y: 0.4040534}
   m_Direction: 1
 --- !u!114 &7842675441144502615
 MonoBehaviour:

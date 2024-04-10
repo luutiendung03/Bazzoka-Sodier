@@ -2,59 +2,91 @@
   "achievementItems": [
     {
       "id": 0,
-      "name": "Defeat Enemies 1 Shot",
+      "name": "Kill 50 enemies",
       "gold": 100,
-      "process": 10
+      "process": 50
     },
     {
       "id": 1,
-      "name": "Defeat Enemies 1 Shot",
+      "name": "Shoot 100 bullets",
       "gold": 100,
-      "process": 10
+      "process": 100
     },
     {
       "id": 2,
-      "name": "Defeat Enemies 1 Shot",
+      "name": "Use Grenade",
       "gold": 100,
       "process": 10
     },
     {
       "id": 3,
-      "name": "Defeat Enemies 1 Shot",
+      "name": "Use Shotgun",
       "gold": 100,
       "process": 10
     },
     {
       "id": 4,
-      "name": "Defeat Enemies 1 Shot",
+      "name": "Use Digger Bomb",
       "gold": 100,
       "process": 10
     },
     {
       "id": 5,
-      "name": "Defeat Enemies 1 Shot",
+      "name": "Use Burst",
       "gold": 100,
       "process": 10
     },
     {
       "id": 6,
-      "name": "Defeat Enemies 1 Shot",
+      "name": "Use Bounce Bomb",
       "gold": 100,
       "process": 10
     },
     {
       "id": 7,
-      "name": "Defeat Enemies 1 Shot",
+      "name": "Use Cluster",
       "gold": 100,
       "process": 10
     },
     {
-      "name": "Defeat Enemies 1 Shot",
+      "id": 8,
+      "name": "Use Sticky Bomb",
       "gold": 100,
       "process": 10
     },
     {
-      "name": "Defeat Enemies 1 Shot",
+      "id": 9,
+      "name": "Use Bunker Bomb",
+      "gold": 100,
+      "process": 10
+    },
+    {
+      "id": 10,
+      "name": "Use Nalpalm",
+      "gold": 100,
+      "process": 10
+    },
+    {
+      "id": 11,
+      "name": "Use Rubber Bomb",
+      "gold": 100,
+      "process": 10
+    },
+    {
+      "id": 12,
+      "name": "Use Laser",
+      "gold": 100,
+      "process": 10
+    },
+    {
+      "id": 13,
+      "name": "Oneshot pass level",
+      "gold": 100,
+      "process": 10
+    },
+    {
+      "id": 14,
+      "name": "Pass levels",
       "gold": 100,
       "process": 10
     }

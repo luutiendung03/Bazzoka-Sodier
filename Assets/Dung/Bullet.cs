@@ -75,9 +75,9 @@ public abstract class Bullet : MonoBehaviour
 
 	public void Explode()
     {
-		
+		AudioController.Instance.PlayAudio(0);
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(point.position, radius);
-		foreach (Collider2D hit in colliders)
+		foreach (Collider2D hit in colliders) 
 		{
 			Rigidbody2D rb = hit.GetComponentInParent<Rigidbody2D>();
 
@@ -91,12 +91,12 @@ public abstract class Bullet : MonoBehaviour
 				//Debug.Log(rb.name);
 				if(rb.tag == "Player")
                 {
-					//StartCoroutine(Player.Instance.Die());
+					rb.GetComponent<Player>().CheckDead();
 				}
 				else if(rb.tag == "Enemy")
                 {
-					StartCoroutine(Enemy.Instance.Die()); 
-                }
+					rb.GetComponent<Enemy>().CheckDead();
+				}
                 else if (rb.tag == "Barrel")
                 {
 					hit.GetComponent<Bomb>().Explosion();

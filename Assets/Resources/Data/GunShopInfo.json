@@ -3,62 +3,74 @@
     {
       "id": 0,
       "name": "Bazooka",
-      "gold": 0
+      "gold": 0,
+      "ads":  4
     },
     {
       "id": 1,
       "name": "Grenade",
-      "gold": 10
+      "gold": 1000,
+      "ads": 4
     },
     {
       "id": 2,
       "name": "Shotgun",
-      "gold": 110
+      "gold": 2000,
+      "ads": 4
     },
     {
       "id": 3,
       "name": "DiggerBomb",
-      "gold": 110
+      "gold": 4500,
+      "ads": 4
     },
     {
       "id": 4,
       "name": "Burst",
-      "gold": 220
+      "gold": 9000,
+      "ads": 4
     },
     {
       "id": 5,
       "name": "Bounce bomb",
-      "gold": 330
+      "gold": 12000,
+      "ads": 4
     },
     {
       "id": 6,
       "name": "Cluster",
-      "gold": 440
+      "gold": 15500,
+      "ads": 4
     },
     {
       "id": 7,
       "name": "Sticky bomb",
-      "gold": 550
+      "gold": 20000,
+      "ads": 4
     },
     {
       "id": 8,
       "name": "Bunker bomb",
-      "gold": 660
+      "gold": 25500,
+      "ads": 4
     },
     {
       "id": 9,
       "name": "Napalm",
-      "gold": 770
+      "gold": 32000,
+      "ads": 4
     },
     {
       "id": 10,
       "name": "Rubber bomb",
-      "gold": 880
+      "gold": 40000,
+      "ads": 4
     },
     {
       "id": 11,
       "name": "Laser",
-      "gold": 990
+      "gold": 50000,
+      "ads": 4
     }
   ]
 }

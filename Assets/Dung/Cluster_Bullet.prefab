@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3700904362241669264}
   - component: {fileID: 8592105077398035525}
   - component: {fileID: 4906695482622216763}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Cluster_Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   threshold: 1
   delay: 0.1
-  prefab: {fileID: 100000, guid: 092aeef3857c50f41ada30e877c781cd, type: 3}
+  prefab: {fileID: 4241716291625933971, guid: 3b13677576804824da556ef802d06bc4, type: 3}
   offset: 0.1
   rotateTo: 0
   onImpact:
@@ -216,5 +216,8 @@ MonoBehaviour:
   point: {fileID: 2180450263186461643}
   radius: 1.8
   explodeForce: 100
+  veloX: 0
+  veloY: 0
+  isCollision: 0
   force: 100
   banana: {fileID: 6943723919936982201, guid: 9fd0251da246dc545bee7a2d7b6ffa2b, type: 3}

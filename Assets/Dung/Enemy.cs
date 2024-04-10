@@ -52,30 +52,29 @@ public class Enemy : Character
 
     public override IEnumerator Die()
     {
-        if(!isDead)
+        PlayerPersistentData.Instance.ScoreProgress(AchievementType.KillEnemies, 1);
+
+        
+        animator.SetBool("Lose", true);
+        Level.Instance.cnt++;
+        Debug.Log("kewk");
+
+
+        Debug.Log("Die");
+
+        animator.enabled = false;
+        foreach (Rigidbody2D rigid in rb)
         {
-            isDead = true;
-            animator.SetBool("Lose", true);
-            Level.Instance.cnt++;
-            Debug.Log("kewk");
-
-            
-            Debug.Log("Die");
-
-            animator.enabled = false;
-            foreach (Rigidbody2D rigid in rb)
-            {
-                rigid.velocity = Vector2.zero;
-                rigid.isKinematic = false;
-            }
-            rb[0].isKinematic = true;
-
-            foreach (Collider2D collider in col)
-            {
-                collider.enabled = true;
-            }
-            col[0].enabled = false;
+            rigid.velocity = Vector2.zero;
+            rigid.isKinematic = false;
         }
+        rb[0].isKinematic = true;
+
+        foreach (Collider2D collider in col)
+        {
+            collider.enabled = true;
+        }
+        col[0].enabled = false;
 
 
         yield return new WaitForSeconds(0.5f);
@@ -102,16 +101,22 @@ public class Enemy : Character
 
         if(collision.gameObject != theFirst)
         {
-            
-            StartCoroutine(Die());
+
+            CheckDead();
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        CheckDead();
     }
 
     public override void CheckDead()
     {
         if (!isDead)
         {
-
+            isDead = true;
+            StartCoroutine(Die());
         }
     }
 }

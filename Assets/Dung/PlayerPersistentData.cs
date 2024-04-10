@@ -3,9 +3,78 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum AchievementType
+{
+    KillEnemies,
+    Shoot,
+    UseGrenade,
+    UseShotgun,
+    UseDigger,
+    UseBurst,
+    UseBounce,
+    UseCluster,
+    UseSticky,
+    UseBunker,
+    UseNapalm,
+    UseRubber,
+    UseLaser,
+    Oneshot,
+    PassLevels
+}
+
+
 public class PlayerPersistentData : Singleton<PlayerPersistentData>
 {
-    
+
+    private void Start()
+    {
+        SetUsedItem(LoadingItem.Gun, 0);
+        SetUsedItem(LoadingItem.Skin, 0);
+        SetUsedItem(LoadingItem.Skin, 1);
+        SetUsedItem(LoadingItem.Skin, 2);
+
+        Audio = 1;
+    }
+
+    public int RateGame
+    {
+        get => PlayerPrefs.GetInt("RateGame", 0);
+
+        set => PlayerPrefs.SetInt("RateGame", value);
+    }
+    public int Audio
+    {
+        get => PlayerPrefs.GetInt("SFX", 0);
+
+        set => PlayerPrefs.SetInt("SFX", value);
+    }
+
+    public void SetProgress(AchievementType type, int setValue)
+    {
+        PlayerPrefs.SetInt(type.ToString(), setValue);
+    }
+
+    public void ScoreProgress(AchievementType type, int score)
+    {
+        int current = GetProgress(type);
+        PlayerPrefs.SetInt(type.ToString(), current + score);
+    }
+
+    public int GetProgress(AchievementType type)
+    {
+        return PlayerPrefs.GetInt(type.ToString(), 0);
+    }
+
+    public bool HasClaimedQuest(AchievementType type)
+    {
+        return PlayerPrefs.GetInt(type.ToString() + "-hasClaimed", 0) != 0;
+    }
+
+    public void SetClaimedQuest(AchievementType type, bool state)
+    {
+        PlayerPrefs.SetInt(type.ToString() + "-hasClaimed", state ? 1 : 0);
+    }
 
     public int Gold
     {
@@ -29,6 +98,18 @@ public class PlayerPersistentData : Singleton<PlayerPersistentData>
     public void SetMeshSkin(TypeofSkin meshSkin,int topic)
     {
         PlayerPrefs.SetInt(meshSkin.ToString() + "MeshSkin", topic);
+    }
+
+    public int GetAdsItem(LoadingItem item, int id)
+    {
+        return PlayerPrefs.GetInt(item.ToString() + "ads" + id.ToString(), 0);
+    }
+
+    public void SetAdsItem(LoadingItem item, int id)
+    {
+        int currentValue = GetAdsItem(item, id);
+
+        PlayerPrefs.SetInt(item.ToString() + "ads" + id.ToString(), currentValue + 1);
     }
 
     public int GetUsedItem(LoadingItem item, int id)
@@ -71,6 +152,15 @@ public class PlayerPersistentData : Singleton<PlayerPersistentData>
         int second = int.Parse(splitted[5]);
         return new DateTime(year, month, day, hour, minute, second);
     }
+
+    public int DailySpinTime
+    {
+        get => PlayerPrefs.GetInt("DailySpinTime", 5);
+
+        set => PlayerPrefs.SetInt("DailySpinTime", value);
+    }
+
+   
 }
 
 

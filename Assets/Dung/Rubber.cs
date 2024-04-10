@@ -31,16 +31,21 @@ public class Rubber : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
         Debug.Log("kewk");
-        if (collision.tag == "Bullet")
+        if (collision.collider.tag != "Ground")
         {
-            Debug.Log(collision.gameObject.GetComponent<Rigidbody2D>().velocity);
-            ElasticForce(collision.gameObject.GetComponent<Rigidbody2D>(), force);
-            
+            //Debug.Log(collision.gameObject.GetComponent<Rigidbody2D>().velocity);
+            if (collision.gameObject.GetComponent<Rigidbody2D>() != null)
+                ElasticForce(collision.gameObject.GetComponent<Rigidbody2D>(), force);
         }
     }
 
-    
 }
 
 public enum RubberShape

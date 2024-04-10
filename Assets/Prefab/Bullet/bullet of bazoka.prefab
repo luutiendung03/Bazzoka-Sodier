@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8539352606991106751}
   - component: {fileID: 6910935073251225695}
   - component: {fileID: 2480149371047771006}
-  - component: {fileID: 8129194104577739578}
+  - component: {fileID: 8536153232656689337}
   m_Layer: 0
   m_Name: bullet of bazoka
   m_TagString: Bullet
@@ -124,8 +124,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02359748, y: -0.009030197}
-  m_Size: {x: 1.1192671, y: 0.42177743}
+  m_Offset: {x: 0.1967938, y: -0.009030217}
+  m_Size: {x: 0.772881, y: 0.42178053}
   m_Direction: 1
 --- !u!114 &6910935073251225695
 MonoBehaviour:
@@ -162,7 +162,7 @@ MonoBehaviour:
   onImpact:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8129194104577739578}
+      - m_Target: {fileID: 8536153232656689337}
         m_TargetAssemblyTypeName: Bazooka_Bullet, Assembly-CSharp
         m_MethodName: Explosion
         m_Mode: 1
@@ -175,7 +175,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   cooldown: 0
---- !u!114 &8129194104577739578
+--- !u!114 &8536153232656689337
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,7 +191,7 @@ MonoBehaviour:
   col: {fileID: 0}
   explosion: {fileID: 4241716291625933971, guid: 1219b3c4d52a7674688e758b0f41071d, type: 3}
   point: {fileID: 581086682186789601}
-  radius: 1.8
+  radius: 1
   explodeForce: 100
   veloX: 0
   veloY: 0

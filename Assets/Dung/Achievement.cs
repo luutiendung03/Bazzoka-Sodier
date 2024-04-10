@@ -45,6 +45,15 @@ public class Achievement : GridItemEvent
             //item.CheckQuestClaimed();
 
         }
+
+        foreach (AchievementItem item in GetComponentsInChildren<AchievementItem>())
+        {
+            if (item.hasDailyClaimed)
+            {
+                item.QuestClaimed();
+            }
+
+        }
     }
     public override T GetItemById<T>(int id)
     {
@@ -63,8 +72,9 @@ public class Achievement : GridItemEvent
         switch (clicked.tag)
         {
             case "FirstItem":
-               
-
+                Debug.Log("firstitem");
+                AudioController.Instance.PlayAudio(6);
+                _item.OnClaimed();
 
                 break;
             case "SecondItem":

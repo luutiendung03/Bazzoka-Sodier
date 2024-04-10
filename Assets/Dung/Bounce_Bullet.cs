@@ -24,6 +24,8 @@ public class Bounce_Bullet : Bullet
         yield return null;
         Bullet newBullet = Instantiate(bullet, point, Quaternion.identity);
         newBullet.Push(force * direction);
+
+        PlayerPersistentData.Instance.ScoreProgress(AchievementType.UseBounce, 1);
     }
 
 

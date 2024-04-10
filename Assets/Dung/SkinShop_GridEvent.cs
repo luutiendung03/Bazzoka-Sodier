@@ -23,7 +23,7 @@ public class SkinShop_GridEvent : GridItemEvent
 
         int usedHeadIndex = PlayerPersistentData.Instance.GetMeshSkin(TypeofSkin.Head) * 3;
         int usedBodyIndex = (PlayerPersistentData.Instance.GetMeshSkin(TypeofSkin.Head) * 3) + 1;
-        int usedLegIndex = (PlayerPersistentData.Instance.GetMeshSkin(TypeofSkin.Head) * 3) + 1;
+        int usedLegIndex = (PlayerPersistentData.Instance.GetMeshSkin(TypeofSkin.Head) * 3) + 2;
 
         foreach (SkinItem item in GetComponentsInChildren<SkinItem>())
         {
@@ -55,39 +55,47 @@ public class SkinShop_GridEvent : GridItemEvent
         switch (clicked.tag)
         {
             case "FirstItem":
-                if(_item != currentHeadUsed)
+                AudioController.Instance.PlayAudio(6);
+                if ((PlayerPersistentData.Instance.GetUsedItem(LoadingItem.Skin, _item.id) == 1))
                 {
-                    if (_item.id % 3 == 0)
+                    if (_item != currentHeadUsed)
                     {
-                        currentHeadUsed.OnUnused();
-                        currentHeadUsed = _item;
-                        currentHeadUsed.OnUsed();
-                        _item.Swap();
-                    }
-                    else if (_item.id % 3 == 1)
-                    {
-                        currentBodyUsed.OnUnused();
-                        currentBodyUsed = _item;
-                        currentBodyUsed.OnUsed();
-                        _item.Swap();
-                    }
-                    else if(_item.id % 3 == 2)
-                    {
-                        currentLegUsed.OnUnused();
-                        currentLegUsed = _item;
-                        currentLegUsed.OnUsed();
-                        _item.Swap();
+                        if (_item.id % 3 == 0)
+                        {
+                            currentHeadUsed.OnUnused();
+                            currentHeadUsed = _item;
+                            currentHeadUsed.OnUsed();
+                            _item.Swap();
+                        }
+                        else if (_item.id % 3 == 1)
+                        {
+                            currentBodyUsed.OnUnused();
+                            currentBodyUsed = _item;
+                            currentBodyUsed.OnUsed();
+                            _item.Swap();
+                        }
+                        else if (_item.id % 3 == 2)
+                        {
+                            currentLegUsed.OnUnused();
+                            currentLegUsed = _item;
+                            currentLegUsed.OnUsed();
+                            _item.Swap();
+                        }
                     }
                 }
+                    
                 
                 //_item.Swap();
 
                 break;
             case "SecondItem":
+                AudioController.Instance.PlayAudio(6);
                 _item.Buy();
+                
                 break;
             case "ThirdItem":
-
+                AudioController.Instance.PlayAudio(6);
+                _item.WatchAds();
                 break;
         }
 

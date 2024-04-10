@@ -6,32 +6,43 @@ using UnityEngine.UI;
 public class GunItem : GridItem
 {
 
-    GunItemInfo gunInfo;
-    int id;
+    GunItemInfo info;
+    public int id;
     int gold;
+    string name;
+    int adsWatch;
+
     [SerializeField] private ShopTab_InfoLoad shopTab;
 
     [SerializeField] private Image buyBtn;
     [SerializeField] private Image ads;
-    [SerializeField] private GameObject selectedItem;
+    //[SerializeField] private GameObject selectedItem;
     [SerializeField] public GameObject tickV;
 
     [SerializeField] private Text gunName;
+    [SerializeField] private Text priceTxt;
+    [SerializeField] private Text adsTxt;
+
     
 
     
 
     public void Set(GunItemInfo gunInfo)
     {
+        info = gunInfo;
         id = gunInfo.id;
         gold = gunInfo.gold;
+        name = gunInfo.name;
+        adsWatch = gunInfo.ads;
         gunName.text = gunInfo.name;
-        if(PlayerPersistentData.Instance.GetUsedItem(LoadingItem.Gun,id) != 0)
+        priceTxt.text = gold.ToString();
+        adsTxt.text = PlayerPersistentData.Instance.GetAdsItem(LoadingItem.Gun, gunInfo.id).ToString() + "/" + gunInfo.ads;
+        if(PlayerPersistentData.Instance.GetUsedItem(LoadingItem.Gun, gunInfo.id) != 0)
         {
-            buyBtn.enabled = false;
-            ads.enabled = false;
-            selectedItem.SetActive(true);
-            buyBtn.transform.parent.gameObject.SetActive(false);
+            buyBtn.gameObject.SetActive(false);
+            ads.gameObject.SetActive(false);
+            //selectedItem.SetActive(true);
+            //buyBtn.transform.parent.gameObject.SetActive(false);
 
         }
         tickV.SetActive(false);
@@ -45,6 +56,7 @@ public class GunItem : GridItem
         {
             PlayerPersistentData.Instance.GunId = id;
             Player.Instance.SetGun();
+            SetGun.Instance.SetCurrentGun();
             GamePlay.instance.Swap();
 
 
@@ -52,17 +64,36 @@ public class GunItem : GridItem
             //    tickV.SetActive(true);
             Debug.Log(PlayerPersistentData.Instance.GunId);
         }
+        
     }
+
+    public void WatchAds()
+    {
+        Debug.Log(id);
+        PlayerPersistentData.Instance.SetAdsItem(LoadingItem.Gun, info.id);
+        adsTxt.text = PlayerPersistentData.Instance.GetAdsItem(LoadingItem.Gun, id).ToString() + "/" + adsWatch;
+        if(PlayerPersistentData.Instance.GetAdsItem(LoadingItem.Gun, id) == adsWatch)
+        {
+            PlayerPersistentData.Instance.SetUsedItem(LoadingItem.Gun, id);
+            buyBtn.gameObject.SetActive(false);
+            ads.gameObject.SetActive(false);
+            AudioController.Instance.PlayAudio(4);
+            //buyBtn.transform.parent.gameObject.SetActive(false);
+            //selectedItem.SetActive(true);
+        }
+    }
+
     public override void Buy()
     {
         if(PlayerPersistentData.Instance.Gold >= gold)
         {
             PlayerPersistentData.Instance.Gold -= gold;
             PlayerPersistentData.Instance.SetUsedItem(LoadingItem.Gun, id);
-            buyBtn.enabled = false;
-            ads.enabled = false;
-            buyBtn.transform.parent.gameObject.SetActive(false);
-            selectedItem.SetActive(true);
+            AudioController.Instance.PlayAudio(4);
+            buyBtn.gameObject.SetActive(false);
+            ads.gameObject.SetActive(false);
+            //buyBtn.transform.parent.gameObject.SetActive(false);
+            //selectedItem.SetActive(true);
         }
         else
         {

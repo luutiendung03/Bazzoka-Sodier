@@ -8,6 +8,7 @@ public class LosePopup : MonoBehaviour
     public void Show()
     {
         gameObject.SetActive(true);
+        AudioController.Instance.PlayAudio(1);
     }
 
     public void Replay()

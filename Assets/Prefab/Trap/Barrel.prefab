@@ -31,7 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -147,4 +147,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explodeForce: 100
   radius: 1.8
-  explosion: {fileID: 100000, guid: f55afcbc5554ebb49b273492978028b1, type: 3}
+  explosion: {fileID: 4241716291625933971, guid: 1219b3c4d52a7674688e758b0f41071d, type: 3}

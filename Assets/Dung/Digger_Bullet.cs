@@ -51,6 +51,7 @@ public class Digger_Bullet : Bullet
             veloY += (g * Time.deltaTime );
         }
 
+        PlayerPersistentData.Instance.ScoreProgress(AchievementType.UseDigger, 1);
         //Debug.Log("kewk");
     }
 

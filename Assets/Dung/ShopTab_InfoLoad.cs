@@ -6,9 +6,11 @@ using UnityEngine.EventSystems;
 public class ShopTab_InfoLoad : EventHolder
 {
     [SerializeField] private HiddenStuff mainPanels;
+    [SerializeField] private HiddenStuff tabPanels;
 
     protected override bool ClickAction(PointerEventData eventData, GameObject clicked)
     {
+        
         Load(clicked.transform.GetSiblingIndex());
         Debug.Log(clicked.transform.GetSiblingIndex());
         return true;
@@ -22,5 +24,6 @@ public class ShopTab_InfoLoad : EventHolder
     public void Load(int tabIndex, bool isHomeBtn)
     {
         mainPanels.Show(tabIndex);
+        tabPanels.ShowTab(tabIndex);
     }
 }

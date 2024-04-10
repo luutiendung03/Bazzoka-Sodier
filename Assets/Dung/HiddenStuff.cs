@@ -7,17 +7,25 @@ public class HiddenStuff : Singleton<HiddenStuff>
 {
     [SerializeField] List<GameObject> tabs;
 
-    
+    public void ShowTab(int index)
+    {
+        foreach (GameObject tab in tabs)
+        {
+            tab.transform.GetChild(1).gameObject.SetActive(false);
+        }
+
+        tabs[index].transform.GetChild(1).gameObject.SetActive(true);
+    }
 
     public void Show(int index)
     {
-        Transform hiding;
-        while (transform.childCount > 0)
-        {
-            hiding = transform.GetChild(0);
-            Hide(hiding.gameObject);
+        //Transform hiding;
+        //while (transform.childCount > 0)
+        //{
+        //    hiding = transform.GetChild(0);
+        //    Hide(hiding.gameObject);
 
-        }
+        //}
         foreach (GameObject tab in tabs)
         {
             tab.SetActive(false);

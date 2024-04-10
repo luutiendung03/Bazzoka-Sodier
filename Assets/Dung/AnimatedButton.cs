@@ -43,10 +43,11 @@ public class AnimatedButton : UIBehaviour, IPointerDownHandler, IPointerUpHandle
 
         if (tf != null && !isCLicked)
         {
-            tf.localScale *= 0.9f;
+            //tf.localScale *= 0.9f;
         }
         isCLicked = true;
         //SoundManager.instance.PlayBtnClick();
+        AudioController.Instance.PlayAudio(6);
     }
 
     private void Press()
@@ -70,7 +71,7 @@ public class AnimatedButton : UIBehaviour, IPointerDownHandler, IPointerUpHandle
 
         if (tf != null && isCLicked)
         {
-            tf.localScale /= 0.9f;
+           // tf.localScale /= 0.9f;
         }
         isCLicked = false;
     }

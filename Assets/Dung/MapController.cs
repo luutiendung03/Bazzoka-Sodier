@@ -15,8 +15,9 @@ public class MapController : MonoBehaviour
 
     private void MapChange()
     {
-        int mapIndex = PlayerPersistentData.Instance.CurrentLevel / 10;
-        currentMap.GetComponent<SpriteRenderer>().sprite = mapSprites[mapIndex];
+        int mapIndex = (PlayerPersistentData.Instance.CurrentLevel-1) / 10;
+        int t = mapIndex % 3;
+        currentMap.GetComponent<SpriteRenderer>().sprite = mapSprites[t];
     }
 
     private void MapMoverment()

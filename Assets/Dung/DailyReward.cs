@@ -13,21 +13,21 @@ public class DailyReward : MonoBehaviour
 
     private void Awake()
     {
-        rewardActions[0] = (() => PlayerPersistentData.Instance.Gold += 50);
+        rewardActions[0] = (() => PlayerPersistentData.Instance.Gold += 200);
 
-        rewardActions[1] = (() => PlayerPersistentData.Instance.Gold += 50);
+        rewardActions[1] = (() => PlayerPersistentData.Instance.Gold += 500);
 
-        rewardActions[2] = (() => PlayerPersistentData.Instance.Gold += 100);
+        rewardActions[2] = (() => PlayerPersistentData.Instance.Gold += 1000);
 
-        rewardActions[3] = (() => PlayerPersistentData.Instance.Gold += 50);
+        rewardActions[3] = (() => PlayerPersistentData.Instance.SetUsedItem(LoadingItem.Skin, 18));
 
-        rewardActions[4] = (() => PlayerPersistentData.Instance.Gold += 50);
+        rewardActions[4] = (() => PlayerPersistentData.Instance.Gold += 3000);
 
-        rewardActions[5] = (() => PlayerPersistentData.Instance.Gold += 50);
+        rewardActions[5] = (() => PlayerPersistentData.Instance.Gold += 4500);
 
         rewardActions[6] = (() =>
         {
-            PlayerPersistentData.Instance.Gold += 50;
+            PlayerPersistentData.Instance.SetUsedItem(LoadingItem.Gun, 4);
         });
     }
 
@@ -35,6 +35,7 @@ public class DailyReward : MonoBehaviour
     {
         if (CheckClaim())
         {
+            AudioController.Instance.PlayAudio(3);
             rewardActions[rewardIndex]();
         }
     }
@@ -43,6 +44,7 @@ public class DailyReward : MonoBehaviour
     {
         if (CheckClaim())
         {
+            AudioController.Instance.PlayAudio(3);
             rewardActions[rewardIndex]();
             rewardActions[rewardIndex]();
         }

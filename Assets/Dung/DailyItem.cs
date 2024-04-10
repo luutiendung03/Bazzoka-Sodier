@@ -29,7 +29,7 @@ public class DailyItem : MonoBehaviour
         {
             tickV.SetActive(false);
             shadow.SetActive(true);
-            dailyPane.SetActive(true);
+            dailyPane.SetActive(false);
             selectingPane.SetActive(false);
         }
     }

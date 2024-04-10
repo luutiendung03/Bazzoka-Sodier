@@ -10,21 +10,23 @@ public class Setting : MonoBehaviour
     private IEnumerator OnOffSound()
     {
         
-        if(soundBtn.anchoredPosition.x == -160)
+        if(soundBtn.anchoredPosition.x == -70)
         {
-            for(int i =-160; i <=200; i+=20)
+            for (int i = -70; i <= 70; i += 10)
             {
                 yield return new WaitForFixedUpdate();
                 soundBtn.anchoredPosition = new Vector2(i, soundBtn.anchoredPosition.y);
             }
+            PlayerPersistentData.Instance.Audio = 1;
         }
-        else if (soundBtn.anchoredPosition.x == 200)
+        else if (soundBtn.anchoredPosition.x == 70)
         {
-            for (int i = 200; i >= -160; i -= 20)
+            for (int i = 70; i >= -70; i -= 10)
             {
                 yield return new WaitForFixedUpdate();
                 soundBtn.anchoredPosition = new Vector2(i, soundBtn.anchoredPosition.y);
             }
+            PlayerPersistentData.Instance.Audio = 0;
         }
         //Debug.Log(soundBtn.anchoredPosition.x);
     }
@@ -32,17 +34,17 @@ public class Setting : MonoBehaviour
     private IEnumerator OnOffVibration()
     {
 
-        if (vibraBtn.anchoredPosition.x == -160)
+        if (vibraBtn.anchoredPosition.x == -70)
         {
-            for (int i = -160; i <= 200; i += 20)
+            for (int i = -70; i <= 70; i += 10)
             {
                 yield return new WaitForFixedUpdate();
                 vibraBtn.anchoredPosition = new Vector2(i, soundBtn.anchoredPosition.y);
             }
         }
-        else if (vibraBtn.anchoredPosition.x == 200)
+        else if (vibraBtn.anchoredPosition.x == 70)
         {
-            for (int i = 200; i >= -160; i -= 20)
+            for (int i = 70; i >= -70; i -= 10)
             {
                 yield return new WaitForFixedUpdate();
                 vibraBtn.anchoredPosition = new Vector2(i, soundBtn.anchoredPosition.y);

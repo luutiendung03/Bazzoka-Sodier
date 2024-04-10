@@ -22,6 +22,8 @@ public class Grenade_Bullet : Bullet
         yield return null;
         Bullet newBullet = Instantiate(bullet, point, Quaternion.identity);
         newBullet.Push(force * direction);
+
+        PlayerPersistentData.Instance.ScoreProgress(AchievementType.UseGrenade, 1);
     }
 
     //public override void Shoot(Bullet bullet, Vector2 point, Vector2 force)

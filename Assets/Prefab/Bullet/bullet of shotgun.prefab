@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 999800387171128452}
   - component: {fileID: 999800387171128458}
   - component: {fileID: 3834509533221294676}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: bullet of shotgun
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -195,8 +195,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.11212242, y: -0.0031039852}
-  m_Size: {x: 1.0475999, y: 0.3510593}
+  m_Offset: {x: 0.1776058, y: -0.00041856503}
+  m_Size: {x: 0.5514436, y: 0.24902245}
   m_Direction: 1
 --- !u!114 &3834509533221294676
 MonoBehaviour:
@@ -229,7 +229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3939224428043719493}
   - component: {fileID: 3939224428043719494}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3939224428043719492}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.624, y: -0.001, z: 0}
+  m_LocalPosition: {x: 0.415, y: -0.001, z: 0}
   m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 0.099999994}
   m_ConstrainProportionsScale: 1
   m_Children: []

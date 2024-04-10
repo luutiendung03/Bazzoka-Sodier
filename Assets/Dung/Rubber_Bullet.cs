@@ -48,6 +48,7 @@ public class Rubber_Bullet : Bullet
 
     public override IEnumerator Shoot(Bullet bullet, Vector2 point, Vector2 direction, float force)
     {
+        PlayerPersistentData.Instance.ScoreProgress(AchievementType.UseRubber, 1);
         Bullet newBullet = Instantiate(bullet, point, Quaternion.identity);
         newBullet.Push(force * direction);
         yield return new WaitForSeconds(2);
