@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class WinBonus : MonoBehaviour
 {
@@ -27,54 +28,81 @@ public class WinBonus : MonoBehaviour
 
     public void Claim()
     {
-        
-        arrow.DOKill();
-        Debug.Log(arrow.eulerAngles);
-        if(arrow.eulerAngles.z >= 7.60f)
-        {
-            PlayerPersistentData.Instance.Gold += 250;
-        }
-        else if(arrow.eulerAngles.z >= 2.30f)
-        {
-            PlayerPersistentData.Instance.Gold += 250;
-            PlayerPersistentData.Instance.Gold += 250;
-        }
-        else if (arrow.eulerAngles.z >= -2.30f)
-        {
-            PlayerPersistentData.Instance.Gold += 250;
-            PlayerPersistentData.Instance.Gold += 250;
-            PlayerPersistentData.Instance.Gold += 250;
-        }
-        else if (arrow.eulerAngles.z >= -7.30f)
-        {
-            PlayerPersistentData.Instance.Gold += 250;
-            PlayerPersistentData.Instance.Gold += 250;
-        }    
-        else
-        {
-            PlayerPersistentData.Instance.Gold += 250;
-        }
 
-        AudioController.Instance.PlayAudio(3);
+        UnityEvent e = new UnityEvent();
+
+        e.AddListener(() =>
+        {
+            arrow.DOKill();
+            Debug.Log(arrow.eulerAngles);
+            if (arrow.eulerAngles.z >= 7.60f)
+            {
+                PlayerPersistentData.Instance.Gold += 250;
+            }
+            else if (arrow.eulerAngles.z >= 2.30f)
+            {
+                PlayerPersistentData.Instance.Gold += 250;
+                PlayerPersistentData.Instance.Gold += 250;
+            }
+            else if (arrow.eulerAngles.z >= -2.30f)
+            {
+                PlayerPersistentData.Instance.Gold += 250;
+                PlayerPersistentData.Instance.Gold += 250;
+                PlayerPersistentData.Instance.Gold += 250;
+            }
+            else if (arrow.eulerAngles.z >= -7.30f)
+            {
+                PlayerPersistentData.Instance.Gold += 250;
+                PlayerPersistentData.Instance.Gold += 250;
+            }
+            else
+            {
+                PlayerPersistentData.Instance.Gold += 250;
+            }
+
+            AudioController.Instance.PlayAudio(3);
+        });
+
+        SkygoBridge.Instance.ShowRewarded(e, null);
+
+       
 
     }
 
     public void GetCoin()
     {
-        AudioController.Instance.PlayAudio(3);
-        PlayerPersistentData.Instance.Gold += 100;
+
+        UnityEvent e = new UnityEvent();
+
+        e.AddListener(() =>
+        {
+            AudioController.Instance.PlayAudio(3);
+            PlayerPersistentData.Instance.Gold += 100;
+        });
+
+        SkygoBridge.Instance.ShowRewarded(e, null);
+        
     }
 
     public void NextLevel()
     {
+
         AudioController.Instance.PlayAudio(3);
         SceneManager.LoadScene(0);
     }
 
     public void WacthAds()
     {
-        PlayerPersistentData.Instance.Gold += 100;
-        NextLevel();
+        UnityEvent e = new UnityEvent();
+
+        e.AddListener(() =>
+        {
+            PlayerPersistentData.Instance.Gold += 100;
+            NextLevel();
+        });
+
+        SkygoBridge.Instance.ShowRewarded(e, null);
+  
     }
 }
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DailyReward : MonoBehaviour
 {
@@ -44,9 +45,17 @@ public class DailyReward : MonoBehaviour
     {
         if (CheckClaim())
         {
-            AudioController.Instance.PlayAudio(3);
-            rewardActions[rewardIndex]();
-            rewardActions[rewardIndex]();
+            UnityEvent e = new UnityEvent();
+
+            e.AddListener(() =>
+            {
+                AudioController.Instance.PlayAudio(3);
+                rewardActions[rewardIndex]();
+                rewardActions[rewardIndex]();
+            });
+
+            SkygoBridge.Instance.ShowRewarded(e, null);
+           
         }
     }
 

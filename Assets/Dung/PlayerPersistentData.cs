@@ -37,6 +37,13 @@ public class PlayerPersistentData : Singleton<PlayerPersistentData>
         Audio = 1;
     }
 
+    public int TimeAds
+    {
+        get => PlayerPrefs.GetInt("TImeAds", 0);
+
+        set => PlayerPrefs.SetInt("TimeAds", value);
+    }
+
     public int RateGame
     {
         get => PlayerPrefs.GetInt("RateGame", 0);

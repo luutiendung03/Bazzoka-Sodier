@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class GunItem : GridItem
@@ -69,18 +70,26 @@ public class GunItem : GridItem
 
     public void WatchAds()
     {
-        Debug.Log(id);
-        PlayerPersistentData.Instance.SetAdsItem(LoadingItem.Gun, info.id);
-        adsTxt.text = PlayerPersistentData.Instance.GetAdsItem(LoadingItem.Gun, id).ToString() + "/" + adsWatch;
-        if(PlayerPersistentData.Instance.GetAdsItem(LoadingItem.Gun, id) == adsWatch)
+        UnityEvent e = new UnityEvent();
+
+        e.AddListener(() =>
         {
-            PlayerPersistentData.Instance.SetUsedItem(LoadingItem.Gun, id);
-            buyBtn.gameObject.SetActive(false);
-            ads.gameObject.SetActive(false);
-            AudioController.Instance.PlayAudio(4);
-            //buyBtn.transform.parent.gameObject.SetActive(false);
-            //selectedItem.SetActive(true);
-        }
+            Debug.Log(id);
+            PlayerPersistentData.Instance.SetAdsItem(LoadingItem.Gun, info.id);
+            adsTxt.text = PlayerPersistentData.Instance.GetAdsItem(LoadingItem.Gun, id).ToString() + "/" + adsWatch;
+            if (PlayerPersistentData.Instance.GetAdsItem(LoadingItem.Gun, id) == adsWatch)
+            {
+                PlayerPersistentData.Instance.SetUsedItem(LoadingItem.Gun, id);
+                buyBtn.gameObject.SetActive(false);
+                ads.gameObject.SetActive(false);
+                AudioController.Instance.PlayAudio(4);
+                //buyBtn.transform.parent.gameObject.SetActive(false);
+                //selectedItem.SetActive(true);
+            }
+        });
+
+        SkygoBridge.Instance.ShowRewarded(e, null);
+       
     }
 
     public override void Buy()

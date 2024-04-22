@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class UIManager : MonoBehaviour
 {
@@ -32,5 +33,23 @@ public class UIManager : MonoBehaviour
             screen.gameObject.SetActive(false);
         }
         
+        if(PlayerPersistentData.Instance.TimeAds % 2 == 1)
+        {
+            UnityEvent e = new UnityEvent();
+
+            e.AddListener(() =>
+            {
+
+            });
+            SkygoBridge.Instance.ShowInterstitial(e);
+        }
+        else
+        {
+            if(PlayerPersistentData.Instance.RateGame == 0)
+            {
+                screens[6].gameObject.SetActive(true);
+            }
+        }
     }
+    
 }

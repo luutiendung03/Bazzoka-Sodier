@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class LosePopup : MonoBehaviour
@@ -18,15 +19,32 @@ public class LosePopup : MonoBehaviour
 
     public void Skip()
     {
-        PlayerPersistentData.Instance.CurrentLevel++;
-        SceneManager.LoadScene(0);
+        UnityEvent e = new UnityEvent();
+
+        e.AddListener(() =>
+        {
+            PlayerPersistentData.Instance.CurrentLevel++;
+            SceneManager.LoadScene(0);
+        });
+
+        SkygoBridge.Instance.ShowRewarded(e, null);
+
+       
     }
 
     public void Reload()
     {
-        GameManager.Instance.count = 3;
-        gameObject.SetActive(false);
-        Level.Instance.isEndGame = false;
+        UnityEvent e = new UnityEvent();
+
+        e.AddListener(() =>
+        {
+            GameManager.Instance.count = 3;
+            gameObject.SetActive(false);
+            Level.Instance.isEndGame = false;
+        });
+
+        SkygoBridge.Instance.ShowRewarded(e, null);
+       
     }
 
 

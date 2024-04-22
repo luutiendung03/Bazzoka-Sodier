@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class SkinItem : GridItem
@@ -54,18 +55,26 @@ public class SkinItem : GridItem
 
     public void WatchAds()
     {
-        Debug.Log(id);
-        PlayerPersistentData.Instance.SetAdsItem(LoadingItem.Skin, id);
-        adsTxt.text = PlayerPersistentData.Instance.GetAdsItem(LoadingItem.Skin, id).ToString() + "/" + adsTime;
-        if (PlayerPersistentData.Instance.GetAdsItem(LoadingItem.Skin, id) == adsTime)
+        UnityEvent e = new UnityEvent();
+
+        e.AddListener(() =>
         {
-            AudioController.Instance.PlayAudio(4);
-            PlayerPersistentData.Instance.SetUsedItem(LoadingItem.Skin, id);
-            buyBtn.gameObject.SetActive(false);
-            ads.gameObject.SetActive(false);
-            //buyBtn.transform.parent.gameObject.SetActive(false);
-            //selectedItem.SetActive(true);
-        }
+            Debug.Log(id);
+            PlayerPersistentData.Instance.SetAdsItem(LoadingItem.Skin, id);
+            adsTxt.text = PlayerPersistentData.Instance.GetAdsItem(LoadingItem.Skin, id).ToString() + "/" + adsTime;
+            if (PlayerPersistentData.Instance.GetAdsItem(LoadingItem.Skin, id) == adsTime)
+            {
+                AudioController.Instance.PlayAudio(4);
+                PlayerPersistentData.Instance.SetUsedItem(LoadingItem.Skin, id);
+                buyBtn.gameObject.SetActive(false);
+                ads.gameObject.SetActive(false);
+                //buyBtn.transform.parent.gameObject.SetActive(false);
+                //selectedItem.SetActive(true);
+            }
+        });
+
+        SkygoBridge.Instance.ShowRewarded(e, null);
+        
     }
 
     public void Swap()
@@ -84,6 +93,7 @@ public class SkinItem : GridItem
     {
         if (PlayerPersistentData.Instance.Gold >= gold)
         {
+
             AudioController.Instance.PlayAudio(4);
             PlayerPersistentData.Instance.Gold -= gold;
             PlayerPersistentData.Instance.SetUsedItem(LoadingItem.Skin, id);

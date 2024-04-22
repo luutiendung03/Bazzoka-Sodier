@@ -248,6 +248,7 @@ public class GameManager : Singleton<GameManager>
 
 	public void LoadLevel()
 	{
+		PlayerPersistentData.Instance.TimeAds++;
 		Debug.Log("Load Level" + levelPlay);
 		GameObject levelPrefab = Resources.Load<GameObject>("Levels/Level" + levelPlay);
 

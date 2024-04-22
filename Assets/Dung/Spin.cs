@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Spin : MonoBehaviour
@@ -111,6 +112,18 @@ public class Spin : MonoBehaviour
             
         }
 
+    }
+
+    public void WatchAds()
+    {
+        UnityEvent e = new UnityEvent();
+
+        e.AddListener(() =>
+        {
+            StartCoroutine(WheelRotate());
+        });
+
+        SkygoBridge.Instance.ShowRewarded(e, null);
     }
 
     public void CloseGIft()

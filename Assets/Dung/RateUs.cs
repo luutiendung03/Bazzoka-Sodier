@@ -6,6 +6,12 @@ using UnityEngine.EventSystems;
 public class RateUs : EventHolder
 {
     private int ratePoint = 0;
+    [SerializeField] private GameObject backBTn;
+
+    private void Start()
+    {
+        StartCoroutine(ShowBackBtn());
+    }
     protected override bool ClickAction(PointerEventData eventData, GameObject clicked)
     {
         ShowStar(clicked.transform.GetSiblingIndex());
@@ -35,4 +41,10 @@ public class RateUs : EventHolder
         Debug.Log(ratePoint);
         
     }    
+
+    private IEnumerator ShowBackBtn()
+    {
+        yield return new WaitForSeconds(3f);
+        backBTn.SetActive(true);
+    }
 }
