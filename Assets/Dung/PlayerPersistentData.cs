@@ -29,6 +29,7 @@ public class PlayerPersistentData : Singleton<PlayerPersistentData>
 
     private void Start()
     {
+       
         SetUsedItem(LoadingItem.Gun, 0);
         SetUsedItem(LoadingItem.Skin, 0);
         SetUsedItem(LoadingItem.Skin, 1);
@@ -39,7 +40,7 @@ public class PlayerPersistentData : Singleton<PlayerPersistentData>
 
     public int TimeAds
     {
-        get => PlayerPrefs.GetInt("TImeAds", 0);
+        get => PlayerPrefs.GetInt("TImeAds", 1);
 
         set => PlayerPrefs.SetInt("TimeAds", value);
     }

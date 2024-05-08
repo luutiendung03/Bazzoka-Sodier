@@ -19,18 +19,16 @@ public class Enemy : Character
         {
             Instance = this;
         }
-    }
 
-    private void Start()
-    {
         firstCollide = false;
         isDead = false;
         col = gameObject.GetComponentsInChildren<Collider2D>();
         rb = gameObject.GetComponentsInChildren<Rigidbody2D>();
         joints = gameObject.GetComponentsInChildren<HingeJoint2D>();
         animator = GetComponent<Animator>();
+        animator.SetBool("Win", false);
         //animator.enabled = false;
-        
+
         //foreach(HingeJoint2D joint in joints)
         //{
         //    joint.enabled = false;
@@ -48,6 +46,11 @@ public class Enemy : Character
 
         col[0].enabled = true;
         rb[0].isKinematic = false;
+    }
+
+    private void Start()
+    {
+        
     }
 
     public override IEnumerator Die()

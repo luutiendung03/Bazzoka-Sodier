@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
@@ -8,6 +9,7 @@ public class GameManager : Singleton<GameManager>
 	//Camera cam;
 
 	public int count = 3;
+	private int ads = 0;
 
 	//public Bullet bullet;
 	//public Trajectory trajectory;
@@ -32,8 +34,8 @@ public class GameManager : Singleton<GameManager>
 	//---------------------------------------
 	void Start()
 	{
-		levelPlay = (PlayerPersistentData.Instance.CurrentLevel % 30);
-
+		
+		
 		//cam = Camera.main;
 		//bullet.DesactivateRb();
 		Physics2D.gravity = new Vector2(0, -10);
@@ -65,7 +67,16 @@ public class GameManager : Singleton<GameManager>
 		
 
 		BulletCount();
-		curLevel.CheckWinorLose();
+		if(curLevel != null)
+        {
+			//curLevel = FindObjectOfType<Level>();
+			curLevel.CheckWinorLose();
+		}
+		else
+        {
+			Debug.Log("ko co level");
+        }
+		
 		StartCheckKill();
 	}
 
@@ -230,6 +241,7 @@ public class GameManager : Singleton<GameManager>
 
 	public void LoadCurrentLevel()
 	{
+		
 		bool hasLevel = HasLevelLeft();
 		if (hasLevel)
 		{
@@ -248,7 +260,13 @@ public class GameManager : Singleton<GameManager>
 
 	public void LoadLevel()
 	{
-		PlayerPersistentData.Instance.TimeAds++;
+		levelPlay = (PlayerPersistentData.Instance.CurrentLevel % 30);
+		UIManager.Instance.rate++;
+		ads++;
+		if (levelPlay == 0)
+			levelPlay = 30;
+		count = 3;
+		//Debug.Log(PlayerPersistentData.Instance.TimeAds);
 		Debug.Log("Load Level" + levelPlay);
 		GameObject levelPrefab = Resources.Load<GameObject>("Levels/Level" + levelPlay);
 
@@ -260,6 +278,16 @@ public class GameManager : Singleton<GameManager>
 		curLevel = Instantiate(levelPrefab, Vector2.zero, Quaternion.identity).GetComponent<Level>();
 		startTimePlay = Time.time;
 
+		if (ads >= 3)
+		{
+			UnityEvent e = new UnityEvent();
+
+			e.AddListener(() =>
+			{
+
+			});
+			SkygoBridge.Instance.ShowInterstitial(e);
+		}
 	}
 
 	[SerializeField] private int levelPlay;

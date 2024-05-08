@@ -5603,6 +5603,7 @@ GameObject:
   - component: {fileID: 296366930}
   - component: {fileID: 296366931}
   - component: {fileID: 296366932}
+  - component: {fileID: 296366933}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -5657,7 +5658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -5673,6 +5674,36 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &296366933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296366929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47532c93e33457b4997b2630aa4363b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactable: 1
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 254284409}
+        m_TargetAssemblyTypeName: UIScreenEvent, Assembly-CSharp
+        m_MethodName: MenuOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  isPopupOpen: 0
+  tf: {fileID: 296366930}
 --- !u!1001 &297826808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19780,7 +19811,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.096}
   m_AnchorMax: {x: 1, y: 0.89641225}
-  m_AnchoredPosition: {x: 10.782959, y: -210.72992}
+  m_AnchoredPosition: {x: 10.782959, y: -210.72974}
   m_SizeDelta: {x: -203.754, y: 11.961}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1117802773
@@ -20814,7 +20845,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4504927198076960374, guid: 60982c8a693741646ab9ff0518d751a7, type: 3}
       propertyPath: m_Text
-      value: surf to play
+      value: tap to play
       objectReference: {fileID: 0}
     - target: {fileID: 4504927198076960374, guid: 60982c8a693741646ab9ff0518d751a7, type: 3}
       propertyPath: m_Color.b
@@ -21873,7 +21904,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.37600002, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -362.53003, y: -1261.0001}
+  m_AnchoredPosition: {x: -362.53003, y: -1261.0002}
   m_SizeDelta: {x: 106.26, y: -3163.57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1214007716
@@ -34676,7 +34707,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1250.797, y: -151.975}
+  m_AnchoredPosition: {x: 1250.7971, y: -151.975}
   m_SizeDelta: {x: 238.65, y: 229.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1832718446

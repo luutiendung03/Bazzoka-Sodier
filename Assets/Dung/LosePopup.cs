@@ -14,7 +14,10 @@ public class LosePopup : MonoBehaviour
 
     public void Replay()
     {
-        SceneManager.LoadScene(0);
+        PlayerPersistentData.Instance.TimeAds++;
+        //SceneManager.LoadScene(0);
+        GameManager.Instance.LoadCurrentLevel();
+        gameObject.SetActive(false);
     }
 
     public void Skip()
@@ -24,7 +27,10 @@ public class LosePopup : MonoBehaviour
         e.AddListener(() =>
         {
             PlayerPersistentData.Instance.CurrentLevel++;
-            SceneManager.LoadScene(0);
+            //SceneManager.LoadScene(0);
+            //PlayerPersistentData.Instance.TimeAds++;
+            GameManager.Instance.LoadCurrentLevel();
+            gameObject.SetActive(false);
         });
 
         SkygoBridge.Instance.ShowRewarded(e, null);

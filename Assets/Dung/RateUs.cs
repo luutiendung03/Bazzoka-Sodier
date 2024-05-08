@@ -38,6 +38,7 @@ public class RateUs : EventHolder
 
         }
         PlayerPersistentData.Instance.RateGame = 1;
+        transform.parent.gameObject.SetActive(true);
         Debug.Log(ratePoint);
         
     }    

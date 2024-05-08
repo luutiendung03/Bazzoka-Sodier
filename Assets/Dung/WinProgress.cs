@@ -28,6 +28,7 @@ public class WinProgress : MonoBehaviour
         AudioController.Instance.PlayAudio(5);
         PlayerPersistentData.Instance.Gold += 250;
         PlayerPersistentData.Instance.CurrentLevel++;
+        PlayerPersistentData.Instance.TimeAds++;
         PlayerPersistentData.Instance.ScoreProgress(AchievementType.PassLevels, 1);
         gameObject.SetActive(true);
         ProgressMap();

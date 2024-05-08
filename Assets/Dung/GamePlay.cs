@@ -11,6 +11,7 @@ public class GamePlay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 	public GameObject firstBullet;
 	public GameObject secondBullet;
 	public GameObject thirdBullet;
+	[SerializeField] private Player player;
 
 	[SerializeField] public GameObject dbKillText;
 	[SerializeField] public GameObject aceTxt;
@@ -50,12 +51,25 @@ public class GamePlay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     private void Start()
     {
+		if (player == null)
+		{
+			player =  FindObjectOfType<Player>();
+		}
 		Swap();
 		cam = Camera.main;
-		curLevelTxt.text = PlayerPersistentData.Instance.CurrentLevel.ToString();
+		
     }
 
-	public void Swap()
+    private void Update()
+    {
+		if (player == null)
+		{
+			player = FindObjectOfType<Player>();
+		}
+		curLevelTxt.text = PlayerPersistentData.Instance.CurrentLevel.ToString();
+	}
+
+    public void Swap()
     {
 		bullet = Traveler.Instance.gunPrefabs[PlayerPersistentData.Instance.GunId];
 	}		
@@ -72,7 +86,7 @@ public class GamePlay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 		{
 			isDragging = true;
 			OnDragStart();
-			UIScreenEvent.Instance.MenuOff();
+			//UIScreenEvent.Instance.MenuOff();
 		}
 	}
 
@@ -110,19 +124,51 @@ public class GamePlay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 			c = direction.x / direction.y;
 		a = (-Mathf.Atan(c)) * Mathf.Rad2Deg;
 
+		//if (direction.y >= 0)
+		//{
+
+		//	if (direction.x > 0)
+		//	{
+		//		Player.Instance.spine.localEulerAngles = new Vector3(0, 0, -a) + new Vector3(0, 0, -90);
+		//		Player.Instance.hip.localScale = new Vector3(-1, 1, 1);
+
+		//	}
+		//	else
+		//	{
+		//		Player.Instance.spine.localEulerAngles = new Vector3(0, 0, -90 + a);
+		//		Player.Instance.hip.localScale = new Vector3(1, 1, 1);
+		//		//Player.Instance.hip.eulerAngles = new Vector3(0, 0, a) + new Vector3(0, 0, 90);
+		//	}
+		//}
+		//else
+		//{
+
+		//	if (direction.x > 0)
+		//	{
+		//		Player.Instance.spine.localEulerAngles = new Vector3(0, 0, -a) + new Vector3(0, 0, 90);
+		//		Player.Instance.hip.localScale = new Vector3(-1, 1, 1);
+		//	}
+		//	else
+		//	{
+		//		Player.Instance.spine.localEulerAngles = new Vector3(0, 0, 90 + a);
+		//		Player.Instance.hip.localScale = new Vector3(1, 1, 1);
+		//		//Player.Instance.hip.eulerAngles = new Vector3(0, 0, a) - new Vector3(0, 0, 90);
+		//	}
+		//}
+
 		if (direction.y >= 0)
 		{
 
 			if (direction.x > 0)
 			{
-				Player.Instance.spine.localEulerAngles = new Vector3(0, 0, -a) + new Vector3(0, 0, -90);
-				Player.Instance.hip.localScale = new Vector3(-1, 1, 1);
-				
+				player.spine.localEulerAngles = new Vector3(0, 0, -a) + new Vector3(0, 0, -90);
+				player.hip.localScale = new Vector3(-1, 1, 1);
+
 			}
 			else
 			{
-				Player.Instance.spine.localEulerAngles = new Vector3(0, 0, -90 + a);
-				Player.Instance.hip.localScale = new Vector3(1, 1, 1);
+				player.spine.localEulerAngles = new Vector3(0, 0, -90 + a);
+				player.hip.localScale = new Vector3(1, 1, 1);
 				//Player.Instance.hip.eulerAngles = new Vector3(0, 0, a) + new Vector3(0, 0, 90);
 			}
 		}
@@ -131,18 +177,18 @@ public class GamePlay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
 			if (direction.x > 0)
 			{
-				Player.Instance.spine.localEulerAngles = new Vector3(0, 0, -a) + new Vector3(0, 0, 90);
-				Player.Instance.hip.localScale = new Vector3(-1, 1, 1);
+				player.spine.localEulerAngles = new Vector3(0, 0, -a) + new Vector3(0, 0, 90);
+				player.hip.localScale = new Vector3(-1, 1, 1);
 			}
 			else
 			{
-				Player.Instance.spine.localEulerAngles = new Vector3(0, 0, 90 + a);
-				Player.Instance.hip.localScale = new Vector3(1, 1, 1);
+				player.spine.localEulerAngles = new Vector3(0, 0, 90 + a);
+				player.hip.localScale = new Vector3(1, 1, 1);
 				//Player.Instance.hip.eulerAngles = new Vector3(0, 0, a) - new Vector3(0, 0, 90);
 			}
 		}
 
-		trajectory.UpdateDots(Player.Instance.scope.position, force);
+		trajectory.UpdateDots(player.scope.position, force);
 	}
 
 	void OnDragEnd()
@@ -152,7 +198,7 @@ public class GamePlay : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 		//newBullet.Push(direction * pushForce);
 		PlayerPersistentData.Instance.ScoreProgress(AchievementType.Shoot, 1);
 
-		StartCoroutine(bullet.Shoot(bullet, Player.Instance.scope.position, direction, pushForce));
+		StartCoroutine(bullet.Shoot(bullet, player.scope.position, direction, pushForce));
 
 
 		//bullet.Shoot(bullet, Player.Instance.scope.position, direction * pushForce); 

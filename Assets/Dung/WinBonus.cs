@@ -88,7 +88,11 @@ public class WinBonus : MonoBehaviour
     {
 
         AudioController.Instance.PlayAudio(3);
-        SceneManager.LoadScene(0);
+        
+        GameManager.Instance.LoadCurrentLevel();
+        gameObject.SetActive(false);
+
+        //SceneManager.LoadScene(0);
     }
 
     public void WacthAds()

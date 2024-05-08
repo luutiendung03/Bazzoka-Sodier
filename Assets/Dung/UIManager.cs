@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class UIManager : MonoBehaviour
+public class UIManager : Singleton<UIManager>
 {
     public static UIManager Instance;
 
     //[SerializeField] GameObject cameraEndGame;
+
+    public int rate = 0;
+    
 
     [SerializeField] private UIScreen[] screens;
 
@@ -33,23 +36,19 @@ public class UIManager : MonoBehaviour
             screen.gameObject.SetActive(false);
         }
         
-        if(PlayerPersistentData.Instance.TimeAds % 2 == 1)
-        {
-            UnityEvent e = new UnityEvent();
+        
+    }
 
-            e.AddListener(() =>
-            {
-
-            });
-            SkygoBridge.Instance.ShowInterstitial(e);
-        }
-        else
+    private void Update()
+    {
+       
+        if (rate == 5)
         {
-            if(PlayerPersistentData.Instance.RateGame == 0)
+            if (PlayerPersistentData.Instance.RateGame == 0)
             {
                 screens[6].gameObject.SetActive(true);
             }
+            rate = 0;
         }
     }
-    
 }

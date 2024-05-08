@@ -7,7 +7,7 @@ public class Player : Character
     public Transform scope;
     public Transform hip;
     public Transform spine;
-    public bool isDead;
+    public bool isDead = false;
 
     public Mesh meshSkinHead;
     public Mesh meshSkinBody;
@@ -40,10 +40,7 @@ public class Player : Character
         {
             Instance = this;
         }
-    }
 
-    private void Start()
-    {
         firstTime = false;
         isDead = false;
         rb = gameObject.GetComponentsInChildren<Rigidbody2D>();
@@ -70,11 +67,16 @@ public class Player : Character
         col[0].enabled = true;
         rb[0].isKinematic = false;
         animator = GetComponent<Animator>();
-        
+
         //animator.enabled = false;
 
         SetSkin();
         SetGun();
+    }
+
+    private void Start()
+    {
+        
 
         //gameObject.GetComponentInChildren<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         //gameObject.GetComponentsInChildren<Rigidbody2D>().
