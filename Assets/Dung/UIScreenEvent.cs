@@ -19,5 +19,12 @@ public class UIScreenEvent : Singleton<UIScreenEvent>
         //leftArea.SetActive(false);
 
         mainMenu.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void MenuOn()
+    {
+        mainMenu.SetActive(true);
+        Time.timeScale = 0;
     }
 }

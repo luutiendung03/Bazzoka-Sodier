@@ -12,6 +12,7 @@ public class GunItem : GridItem
     int gold;
     string name;
     int adsWatch;
+    
 
     [SerializeField] private ShopTab_InfoLoad shopTab;
 
@@ -23,10 +24,16 @@ public class GunItem : GridItem
     [SerializeField] private Text gunName;
     [SerializeField] private Text priceTxt;
     [SerializeField] private Text adsTxt;
+    [SerializeField] private Player player;
+    private void Update()
+    {
+        if(player == null)
+        {
+            player = FindObjectOfType<Player>();
+        }
+    }
 
-    
 
-    
 
     public void Set(GunItemInfo gunInfo)
     {
@@ -56,7 +63,7 @@ public class GunItem : GridItem
         if(PlayerPersistentData.Instance.GetUsedItem(LoadingItem.Gun, id) == 1)
         {
             PlayerPersistentData.Instance.GunId = id;
-            Player.Instance.SetGun();
+            player.SetGun();
             SetGun.Instance.SetCurrentGun();
             GamePlay.instance.Swap();
 

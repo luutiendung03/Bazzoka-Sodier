@@ -277,7 +277,7 @@ public class GameManager : Singleton<GameManager>
 
 		curLevel = Instantiate(levelPrefab, Vector2.zero, Quaternion.identity).GetComponent<Level>();
 		startTimePlay = Time.time;
-
+		UIScreenEvent.Instance.MenuOn();
 		if (ads >= 3)
 		{
 			UnityEvent e = new UnityEvent();

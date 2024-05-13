@@ -22,6 +22,14 @@ public class SkinItem : GridItem
     [SerializeField] private ShopTab_InfoLoad shopTab;
     [SerializeField] private Text priceTxt;
     [SerializeField] private Text adsTxt;
+    [SerializeField] private Player player;
+    private void Update()
+    {
+        if (player == null)
+        {
+            player = FindObjectOfType<Player>();
+        }
+    }
 
     public void Set(SkinItemInfo skinInfo)
     {
@@ -83,7 +91,7 @@ public class SkinItem : GridItem
         {
             PlayerPersistentData.Instance.SetMeshSkin(type, topic);
             Debug.Log(PlayerPersistentData.Instance.GetMeshSkin(type)); ;
-            Player.Instance.SetSkin();
+            player.SetSkin();
             SetSkin.Instance.SetCurrentSkin();
         }
             

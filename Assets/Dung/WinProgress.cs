@@ -20,7 +20,7 @@ public class WinProgress : MonoBehaviour
     private int currentProgressMap;
     private void Start()
     {
-        giftBox.DOShakePosition(4f, 20);
+        
     }
 
     public void Show()
@@ -34,6 +34,7 @@ public class WinProgress : MonoBehaviour
         ProgressMap();
         StartCoroutine(ProgressGift());
         SetGift();
+        giftBox.DOShakePosition(4f, 20);
     }
 
     private void ProgressMap()
@@ -70,7 +71,11 @@ public class WinProgress : MonoBehaviour
         if (progressGiftBar.fillAmount == 1)
             giftClaimPane.SetActive(true);
         else
+        {
+            giftClaimPane.SetActive(false);
             AutoClosed();
+        }
+            
     }
 
     private void SetGift()
@@ -117,7 +122,7 @@ public class WinProgress : MonoBehaviour
 
     public void AutoClosed()
     {
-        
+        giftClaimPane.SetActive(false);
         gameObject.SetActive(false);
         UIManager.Instance.winBonus.Show();
     }

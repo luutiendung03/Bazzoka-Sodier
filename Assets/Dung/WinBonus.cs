@@ -11,17 +11,22 @@ public class WinBonus : MonoBehaviour
 
     private void Start()
     {
+        
         Show();
+        
     }
     public void Show()
     {
         gameObject.SetActive(true);
-        LuckyBonousGold();
+        StartCoroutine(LuckyBonousGold());
+        
     }
 
-    private void LuckyBonousGold()
+    private IEnumerator LuckyBonousGold()
     {
-        arrow.DORotate(new Vector3(0, 0, 23), 1,RotateMode.WorldAxisAdd).SetLoops(-1, LoopType.Yoyo);
+        arrow.eulerAngles = new Vector3(0, 0, 15);
+        yield return new WaitForSeconds(1f);
+        arrow.DORotate(new Vector3(0, 0, -28), 1,RotateMode.WorldAxisAdd).SetLoops(-1, LoopType.Yoyo);
 
         
     }
@@ -88,7 +93,8 @@ public class WinBonus : MonoBehaviour
     {
 
         AudioController.Instance.PlayAudio(3);
-        
+        arrow.DOKill();
+       
         GameManager.Instance.LoadCurrentLevel();
         gameObject.SetActive(false);
 
